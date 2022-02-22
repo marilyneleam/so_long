@@ -6,10 +6,12 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2021/11/18 16:03:11 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/19 15:42:35 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include "msg_error.h"
 
+void check_error(int ac, char **av);
 int check_extension(char *str);

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_extension.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 13:59:37 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/19 15:30:49 by mleam            ###   ########.fr       */
+/*   Created: 2021/10/18 23:31:30 by mleam             #+#    #+#             */
+/*   Updated: 2022/02/19 15:41:24 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
 
-int check_extension(char *str)
+void    ft_putstr(char *str)
 {
     int i;
-    int j;
-    char *ext_files;
-    i = ft_strlen(str);
-    j = i - 4;
-    ext_files = &(str[j]);
-    if (str[0] != '.' && ft_strcmp(ext_files, ".ber") == 0)
-        return (1);
-    return (-1);
+    
+    i = 0;
+    if (!str)
+        return ;
+    while (str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
 }

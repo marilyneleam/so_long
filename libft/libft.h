@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:06 by mleam             #+#    #+#             */
-/*   Updated: 2021/11/18 15:59:08 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/19 15:41:54 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 
-void    ft_putstr_fd(char *str, int fd);
+void    ft_putstr(char *str);
 char    **ft_split(char *s, char c);
 char	*ft_substr(char *s, int start, size_t len);
 int	    ft_strlen(char *s);

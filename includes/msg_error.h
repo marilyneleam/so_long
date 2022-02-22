@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   msg_error.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 23:31:30 by mleam             #+#    #+#             */
-/*   Updated: 2021/11/18 15:52:12 by mleam            ###   ########.fr       */
+/*   Created: 2022/02/19 15:25:47 by mleam             #+#    #+#             */
+/*   Updated: 2022/02/19 15:33:06 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MSG_ERROR_H
+# define MSG_MESSAGE_H
 
-void    ft_putstr_fd(char *str, int fd)
-{
-    int i;
-    
-    i = 0;
-    if (!str)
-        return ;
-    while (str[i])
-    {
-        write(fd, &str[i], 1);
-        i++;
-    }
-}
+#define ERR_EXTENSION "Wrong extension\n"
+#define ERR_ARGS "Miss or too much arguments"
+
+#endif
