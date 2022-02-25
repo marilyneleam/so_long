@@ -6,14 +6,14 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:00:16 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 16:32:56 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/25 18:22:04 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include <stdio.h>
 
-void	check_validity_map(char **av, t_map *map)
+void	check_map_size(char **av, t_map *map)
 {
 	int		fd;
 	int		ret;
@@ -26,18 +26,13 @@ void	check_validity_map(char **av, t_map *map)
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
-		if (ret == 1)
-			map->row++;
+		map->row++;
 		free(line);
 		line = NULL;
 	}
 	close(fd);
 	if (map->row < 3)
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_putstr_fd(ERR_MAP_SMALL, 2);
-		exit(EXIT_FAILURE);
-	}
+		print_error(ERR_MAP_SMALL);
 }
 
 void	copy_map(char **av, t_map *map)
@@ -58,13 +53,45 @@ void	copy_map(char **av, t_map *map)
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
-		if (ret == 1)
-		{
-			map->column = ft_strlen(line);
-			map->tab[i++] = ft_strdup(line);
-		}
+		map->column = ft_strlen(line);
+		map->tab[i++] = ft_strdup(line);
 		free(line);
 		line = NULL;
 	}
 	close(fd);
 }
+
+void	check_map_rectangle(t_map *map)
+{
+	int	i;
+	int compare_len;
+
+	i = 1;
+	while(map->tab[i])
+	{
+		compare_len = ft_strlen(map->tab[i - 1]) - ft_strlen(map->tab[i]);
+		if (compare_len != 0)
+			print_error(ERR_MAP_RECTANGLE);
+		i++;
+	}
+}
+
+void	check_map_wall(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(map->tab[i])
+	{
+		j = 0;
+		while(map->tab[i][j])
+		{
+			if (map->tab[0][j] != '1' || map->tab[i][0] != '1' || map->tab[map->row - 1][j] != '1' || map->tab[i][map->column -1] != '1')
+				print_error(ERR_MAP_CLOSED);
+			j++;
+		}
+		i++;
+	}
+}
+
