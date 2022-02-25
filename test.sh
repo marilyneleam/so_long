@@ -25,8 +25,8 @@ make
 
 echo "${GREEN} TEST NO ARG ${END}" 
 ./so_long
-echo ""
-ask_conf
+# echo ""
+# ask_conf
 
 echo ""
 echo "${GREEN} TEST WRONG EXT ${END}" 
@@ -39,6 +39,14 @@ echo "${GREEN} TEST DOES NOT EXIST ${END}"
 echo ""
 echo "${GREEN} TEST DIRECTORY ${END}" 
 ./so_long maps/dir.ber
+
+echo ""
+echo "${GREEN} TEST SAME NAME ${END}" 
+./so_long maps/.ber
+
+echo ""
+echo "${GREEN} TEST MAP SMALL ${END}" 
+./so_long maps/map_small.ber
 
 echo ""
 echo "${GREEN} TEST OK ${END}" 
