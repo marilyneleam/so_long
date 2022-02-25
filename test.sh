@@ -21,7 +21,7 @@ do
 done
 }
 
-make
+make re
 
 echo "${GREEN} TEST NO ARG ${END}" 
 ./so_long
@@ -49,5 +49,33 @@ echo "${GREEN} TEST MAP SMALL ${END}"
 ./so_long maps/map_small.ber
 
 echo ""
-echo "${GREEN} TEST OK ${END}" 
+echo "${GREEN} TEST IS NOT RECTANGLE ${END}" 
+./so_long maps/map_not_rectangle.ber
+
+echo ""
+echo "${GREEN} TEST IS NOT closed ${END}" 
+./so_long maps/map_not_closed.ber
+
+echo ""
+echo "${GREEN} TEST ERR PARAM ${END}" 
+./so_long maps/map_param_error.ber
+
+echo ""
+echo "${GREEN} TEST HAS 0 PLAYER ${END}" 
+./so_long maps/map_zero_player.ber
+
+echo ""
+echo "${GREEN} TEST HAS 2 PLAYERS ${END}" 
+./so_long maps/map_two_player.ber
+
+echo ""
+echo "${GREEN} TEST HAS NO COLLECTIBLES ${END}" 
+./so_long maps/map_coll.ber
+
+echo ""
+echo "${GREEN} TEST HAS NO EXIT ${END}" 
+./so_long maps/map_exit.ber
+
+echo ""
+echo "${GREEN} TEST XPM OK ${END}" 
 ./so_long maps/map1.ber
