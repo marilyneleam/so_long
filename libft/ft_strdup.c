@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 14:30:54 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 13:34:41 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/25 15:29:48 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ char	*ft_strdup(char *s)
 {
 	char	*d;
 	int		i;
+	int		len;
 
+	len = 0;
 	i = 0;
-	d = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	while (s[len])
+		len++;
+	d = malloc(sizeof(char) * (len + 1));
 	if (!d)
 		return (NULL);
 	while (s[i] != '\0')
