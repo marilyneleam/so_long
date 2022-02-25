@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:57:47 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/19 15:33:52 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/25 11:23:39 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(int ac, char **av)
 {
-    check_error(ac, av);
+//    check_error(ac, av);
+    check_and_read(ac, av);
     return (0);
 }

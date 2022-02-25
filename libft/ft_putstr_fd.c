@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:31:30 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/19 15:41:24 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/25 10:12:12 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putstr(char *str)
+void    ft_putstr_fd(char *str, int fd)
 {
     int i;
     
@@ -21,7 +21,7 @@ void    ft_putstr(char *str)
         return ;
     while (str[i])
     {
-        write(1, &str[i], 1);
+        write(fd, &str[i], 1);
         i++;
     }
 }

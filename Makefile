@@ -6,7 +6,7 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/18 23:05:54 by mleam             #+#    #+#              #
-#    Updated: 2022/02/19 15:34:35 by mleam            ###   ########.fr        #
+#    Updated: 2022/02/25 10:58:10 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT_N = libft.a
 
 SRCS	=	srcs/main.c \
 			srcs/check_error.c \
-			srcs/check_extension.c \
+			srcs/check.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
