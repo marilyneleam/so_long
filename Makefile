@@ -6,7 +6,7 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/18 23:05:54 by mleam             #+#    #+#              #
-#    Updated: 2022/02/25 16:00:49 by mleam            ###   ########.fr        #
+#    Updated: 2022/02/25 18:47:27 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,9 @@ LIBFT_N = libft.a
 SRCS	=	srcs/main.c \
 			srcs/check_file.c \
 			srcs/check_map.c \
+			srcs/check_map_param.c \
+			srcs/check_texture.c \
+			srcs/print_error.c \
 			GNL/get_next_line.c \
 
 OBJS	=	$(SRCS:.c=.o)
