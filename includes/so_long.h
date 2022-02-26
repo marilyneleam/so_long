@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/26 17:32:47 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/26 17:43:33 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ void	check_and_read_texture(char *pathfile);
 void	check_texture();
 t_img	init_image(t_all *all, char *pathfile);
 void	init_images(t_all *all);
+void	pos_player(t_all *all, int i, int j);
+void	draw_elements(t_all *all, int i, int j);
+void	draw_collectibles(t_all *all, int i, int j);
+void	draw_map(t_all *all);
+
 int		main(int ac, char **av);
 
 #endif
