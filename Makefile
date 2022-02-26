@@ -6,7 +6,7 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/18 23:05:54 by mleam             #+#    #+#              #
-#    Updated: 2022/02/25 22:05:44 by mleam            ###   ########.fr        #
+#    Updated: 2022/02/26 17:13:46 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	=	srcs/main.c \
 			srcs/check_map_param.c \
 			srcs/check_texture.c \
 			srcs/print_error.c \
+			srcs/init_images.c \
 			GNL/get_next_line.c \
 
 OBJS	=	$(SRCS:.c=.o)
