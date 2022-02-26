@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:00:16 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 18:22:04 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/26 16:01:04 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ void	copy_map(char **av, t_map *map)
 	fd = open(av[1], O_RDONLY);
 	ret = 1;
 	map->column = 0;
-	map->tab = (char **)malloc(sizeof(char *) * map->row + 1);
+	map->tab = (char **)malloc(sizeof(char *) * (map->row + 1));
 	if (!(map->tab))
 		exit(EXIT_FAILURE);
+	map->tab[map->row] = NULL;
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);

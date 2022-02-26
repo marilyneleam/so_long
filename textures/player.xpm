@@ -1,5 +1,5 @@
 /* XPM */
-static char *player_minus[] = {
+static char *player[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 161 2 ",
 "   c #7B3632",
@@ -140,7 +140,7 @@ static char *player_minus[] = {
 "h. c #E2CEC8",
 "j. c #E8CEC8",
 "k. c #E0CBC5",
-"l. c #F6CEC8",
+"l. c #FFFFFF",
 "z. c #F9CFC9",
 "x. c #F9CBC6",
 "c. c #EAD5CE",
@@ -158,11 +158,11 @@ static char *player_minus[] = {
 "S. c #FEECD2",
 "D. c #FBE4DD",
 "F. c #E4E4E3",
-"G. c #EDEDED",
+"G. c gray93",
 "H. c #FDE7E0",
 "J. c #F0EFEF",
 "K. c #F0F0EF",
-"L. c #F2F2F2",
+"L. c #FFFFFF",
 /* pixels */
 "L.L.L.L.L.L.L.L.L.L.L.L.L.L.J.J.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.",
 "L.L.L.L.L.L.L.L.L.L.L.L.L.J.Y $.L.L.L.L.L.L.G.L.L.L.L.L.L.L.L.L.",

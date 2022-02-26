@@ -1,5 +1,5 @@
 /* XPM */
-static char *heart_minus[] = {
+static char *heart[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 130 2 ",
 "   c #97021D",
@@ -123,15 +123,15 @@ static char *heart_minus[] = {
 "8. c #E1DDDD",
 "9. c #E6E4E4",
 "0. c #EFE2E5",
-"q. c #EEEEEE",
+"q. c #FFFFFF",
 "w. c #F0E2E5",
 "e. c #F6ECEE",
-"r. c #EFF0EF",
+"r. c #FFFFFF",
 "t. c #F8EEF0",
-"y. c #F4F4F4",
+"y. c #FFFFFF",
 "u. c #FAF3F5",
-"i. c #FBF7F8",
-"p. c #FCFCFC",
+"i. c #FFFFFF",
+"p. c #FFFFFF",
 /* pixels */
 "q.q.i.p.p.r.q.i.p.p.r.q.i.p.p.r.q.y.p.p.q.q.i.p.p.r.q.i.p.p.q.q.",
 "q.q.i.p.p.r.r.y.p.p.q.q.i.p.p.r.q.i.p.p.r.r.p.p.p.q.q.p.p.p.q.q.",

@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 19:07:40 by mleam            ###   ########.fr       */
+/*   Updated: 2022/02/26 15:44:32 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../libft/libft.h"
 # include "msg_error.h"
 # include "../GNL/get_next_line.h"
+# include "../mlx_linux/mlx.h"
+
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -35,6 +37,25 @@ typedef struct s_map
 	int		coll;
 	int		player;
 }				t_map;
+
+typedef struct s_data
+{
+	void	*mlx;
+	void	*mlx_win;
+}				t_data;
+
+typedef struct	s_img
+{
+	void	*img;
+	int		height;
+	int		width;
+}				t_img;
+
+typedef struct	s_text
+{
+	t_img	wall;
+}				t_text;
+
 
 void	check_extension(char *str);
 void	check_and_read_file(char **av);
