@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 17:11:45 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 22:44:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_img	init_image(t_all *all, char *pathfile)
 {
-	t_img img;
-	img.img = mlx_xpm_file_to_image(all->data.mlx, pathfile, &img.width, &img.height);
+	t_img	img;
+
+	img.img = mlx_xpm_file_to_image(all->data.mlx,
+			pathfile, &img.width, &img.height);
 	if (!img.img)
-		exit(EXIT_FAILURE);	
+		exit (EXIT_FAILURE);
 	return (img);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:00:16 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 21:07:06 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 22:33:33 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void	copy_map(char **av, t_map *map)
 void	check_map_rectangle(t_map *map)
 {
 	int	i;
-	int compare_len;
+	int	compare_len;
 
 	i = 1;
-	while(map->tab[i])
+	while (map->tab[i])
 	{
 		compare_len = ft_strlen(map->tab[i - 1]) - ft_strlen(map->tab[i]);
 		if (compare_len != 0)
@@ -83,16 +83,17 @@ void	check_map_wall(t_map *map)
 	int	j;
 
 	i = 0;
-	while(map->tab[i])
+	while (map->tab[i])
 	{
 		j = 0;
-		while(map->tab[i][j])
+		while (map->tab[i][j])
 		{
-			if (map->tab[0][j] != '1' || map->tab[i][0] != '1' || map->tab[map->row - 1][j] != '1' || map->tab[i][map->column -1] != '1')
+			if (map->tab[0][j] != '1' || map->tab[i][0] != '1'
+				|| map->tab[map->row - 1][j] != '1' ||
+					map->tab[i][map->column -1] != '1')
 				print_error(ERR_MAP_CLOSED);
 			j++;
 		}
 		i++;
 	}
 }
-

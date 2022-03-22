@@ -6,7 +6,7 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 16:37:46 by mleam             #+#    #+#              #
-#    Updated: 2022/03/22 20:44:27 by mleam            ###   ########.fr        #
+#    Updated: 2022/03/22 22:00:24 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ MLX_N			=	libmlx.a
 MLX_N 			:=	$(addprefix $(MLX_D),$(MLX_N))
 
 # Fichiers sources
-SRCS_SRCS		=	check_all.c \
+SRCS_SRCS		=	begin_mlx.c \
+					check_all.c \
 					check_file.c \
 					check_map.c \
 					check_map_param.c \

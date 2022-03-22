@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_error.c                                      :+:      :+:    :+:   */
+/*   begin_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 18:04:06 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 22:44:56 by mleam            ###   ########.fr       */
+/*   Created: 2022/03/22 21:59:03 by mleam             #+#    #+#             */
+/*   Updated: 2022/03/22 22:19:50 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_error(char *s)
+void	begin_mlx(t_all *all)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(s, 2);
-	exit(EXIT_FAILURE);
+	all->data.mlx = mlx_init();
+	if (!all->data.mlx)
+	{
+		free_tab(all->map.tab);
+		exit(EXIT_FAILURE);
+	}	
 }

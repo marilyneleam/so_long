@@ -6,13 +6,13 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:14:36 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 22:31:04 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_all(char **av, t_all *all)
+void	check_all(char **av, t_all *all)
 {
 	check_and_read_file(av);
 	check_extension(av[1]);

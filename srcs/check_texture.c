@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:45:12 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 22:30:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_and_read_texture(char *pathfile)
 	close(fd);
 }
 
-void	check_texture()
+void	check_texture(void)
 {
 	check_texture_extension(PLAYER);
 	check_texture_extension(COLLECTIBLES);
