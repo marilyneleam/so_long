@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 17:40:37 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 20:28:58 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include "msg_error.h"
 # include "../gnl/get_next_line.h"
-# include "../ft_printf/ft_printf.h"
+# include "../ft_printf/
 # include "../mlx_linux/mlx.h"
 
 # include <sys/types.h>
