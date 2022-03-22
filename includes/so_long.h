@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 14:45:02 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 15:37:07 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include "msg_error.h"
 # include "../GNL/get_next_line.h"
+# include "../ft_printf/ft_printf.h"
 # include "../mlx_linux/mlx.h"
 
 # include <sys/types.h>
@@ -39,6 +40,7 @@ typedef struct s_map
 	int		player;
 	int		pos_x;
 	int		pos_y;
+	int		step;
 }				t_map;
 
 typedef struct s_data

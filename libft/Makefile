@@ -6,17 +6,22 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/18 23:29:18 by mleam             #+#    #+#              #
-#    Updated: 2022/02/25 15:47:21 by mleam            ###   ########.fr        #
+#    Updated: 2022/03/22 15:35:42 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
-SRCS	=	ft_putstr_fd.c \
-			ft_strdup.c \
+SRCS	=	ft_itoa_base.c \
+			ft_putchar.c \
+			ft_putstr.c \
+			ft_putstr_fd.c \
 			ft_strcmp.c \
-			ft_strlen.c \
+			ft_strdup.c \
 			ft_strjoin.c \
+			ft_strlen.c \
+			ft_strrev.c \
+			ft_ultoa_base.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
