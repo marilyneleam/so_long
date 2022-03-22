@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/26 17:43:33 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 14:45:02 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <stdio.h> 
 
 # define PLAYER "./textures/player.xpm"
 # define COLLECTIBLES "./textures/heart.xpm"
@@ -44,6 +45,7 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*mlx_win;
+
 }				t_data;
 
 typedef struct	s_img

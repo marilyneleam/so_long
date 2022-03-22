@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 17:42:33 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/26 17:42:37 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 14:46:24 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	draw_map(t_all *all)
 	int j;
 
 	i = 0;
-	while(all->map.tab[i])
+	while(i < all->map.row)
 	{
 		j = 0;
-		while(all->map.tab[i][j])
+		while(j < all->map.column)
 		{
 			pos_player(all, i, j);
 			draw_elements(all, i , j);
