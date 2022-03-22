@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 20:44:43 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 21:41:06 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void	check_all(char **av, t_all *all);
 int		key_hook(int keycode, t_all *all);
 int		mouse_close(t_all *all);
 void	free_tab(char **tab);
+void	free_mlx(t_all *all);
+void	free_and_exit(t_all *all);
 
 int		main(int ac, char **av);
 

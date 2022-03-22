@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:23:19 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 17:53:31 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 21:55:48 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,13 @@ int key_hook(int keycode, t_all *all)
 		ft_printf("Player move = %d\n", all->map.step);
 	}
 	if (keycode == 65307 || (all->map.tab[all->map.pos_y][all->map.pos_x] == 'E' && all->map.coll == 0))
-	{
-		ft_printf("Player total move = %d\n", all->map.step);
-		mlx_destroy_window(all->data.mlx, all->data.mlx_win);
-		exit(EXIT_SUCCESS);
-	}
+		free_and_exit(all);
 	draw_map(all);
 	return (0);
 }
 
 int	mouse_close(t_all *all)
 {
-	ft_printf("Player total move = %d\n", all->map.step);
-	mlx_destroy_window(all->data.mlx, all->data.mlx_win);
-	exit(EXIT_SUCCESS);
+	free_and_exit(all);
 	return (0);
 }
