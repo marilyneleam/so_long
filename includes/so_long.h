@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 20:28:58 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 20:44:43 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include "msg_error.h"
 # include "../gnl/get_next_line.h"
-# include "../ft_printf/
+# include "../ft_printf/ft_printf.h"
 # include "../mlx_linux/mlx.h"
 
 # include <sys/types.h>
@@ -97,6 +97,7 @@ void	init_structure(t_all *all);
 void	check_all(char **av, t_all *all);
 int		key_hook(int keycode, t_all *all);
 int		mouse_close(t_all *all);
+void	free_tab(char **tab);
 
 int		main(int ac, char **av);
 

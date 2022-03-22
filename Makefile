@@ -6,7 +6,7 @@
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 16:37:46 by mleam             #+#    #+#              #
-#    Updated: 2022/03/22 17:42:57 by mleam            ###   ########.fr        #
+#    Updated: 2022/03/22 20:44:27 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS_SRCS		=	check_all.c \
 					check_map_param.c \
 					check_texture.c \
 					draw.c \
+					free.c \
 					hooks.c \
 					init_images.c \
 					init_structure.c \

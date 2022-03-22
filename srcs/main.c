@@ -6,24 +6,11 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:57:47 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 18:02:00 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 21:14:11 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	free_tab(char **tab)
-{
-	int i;
-
-	i = 0;
-	while(tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
 
 int	main(int ac, char **av)
 {
