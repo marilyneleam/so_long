@@ -6,11 +6,11 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:57:49 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 18:43:30 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	count_map_param(t_map *map)
 {
@@ -18,9 +18,6 @@ void	count_map_param(t_map *map)
 	int	j;
 	
 	i = 0;
-	map->player = 0;
-	map->coll = 0;
-	map->exit = 0;
 	while(map->tab[i])
 	{
 		j = 0;

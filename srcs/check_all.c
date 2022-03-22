@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_images.c                                      :+:      :+:    :+:   */
+/*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 17:11:45 by mleam             #+#    #+#             */
+/*   Created: 2022/03/22 16:14:36 by mleam             #+#    #+#             */
 /*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img	init_image(t_all *all, char *pathfile)
+void check_all(char **av, t_all *all)
 {
-	t_img img;
-	img.img = mlx_xpm_file_to_image(all->data.mlx, pathfile, &img.width, &img.height);
-	if (!img.img)
-		exit(EXIT_FAILURE);	
-	return (img);
-}
-
-void	init_images(t_all *all)
-{
-	all->text.wall = init_image(all, WALL);
-	all->text.ground = init_image(all, GROUND);
-	all->text.collectibles = init_image(all, COLLECTIBLES);
-	all->text.player = init_image(all, PLAYER);
-	all->text.exit = init_image(all, EXIT);
+	check_and_read_file(av);
+	check_extension(av[1]);
+	check_map_size(av, &all->map);
+	copy_map(av, &all->map);
+	check_map_rectangle(&all->map);
+	check_map_wall(&all->map);
+	check_map_param(&all->map);
+	check_texture();
 }

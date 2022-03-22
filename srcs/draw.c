@@ -6,11 +6,11 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 17:42:33 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 15:01:04 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	pos_player(t_all *all, int i, int j)
 {

@@ -5,74 +5,131 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mleam <mleam@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/18 23:05:54 by mleam             #+#    #+#              #
-#    Updated: 2022/03/22 15:53:37 by mleam            ###   ########.fr        #
+#    Created: 2022/03/22 16:37:46 by mleam             #+#    #+#              #
+#    Updated: 2022/03/22 17:42:57 by mleam            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	so_long
+# Nom exécutable
 
-LIBFT_D = libft
-LIBFT_N = libft.a
+NAME			=	so_long
 
-FT_PRINTF_D =		ft_printf
-FT_PRINTF_N =		libftprintf.a
+# Commandes
+CC				=	gcc
+LINKER			=	gcc
+RM				=	/bin/rm -rf # /bin/rm utilise le chemin de la commande au cas ou si alias sur zshrc
+CREATE			= 	/bin/mkdir -p #p = si le dossier existe, il ne le refait pas
 
-SRCS	=	srcs/main.c \
-			srcs/check_file.c \
-			srcs/check_map.c \
-			srcs/check_map_param.c \
-			srcs/check_texture.c \
-			srcs/print_error.c \
-			srcs/init_images.c \
-			srcs/draw.c \
-			GNL/get_next_line.c \
-			ft_printf/ft_printf_adress.c \
-			ft_printf/ft_printf.c \
-			ft_printf/ft_printf_call.c \
-			ft_printf/ft_printf_character_percent.c \
-			ft_printf/ft_printf_decimal_integer.c \
-			ft_printf/ft_printf_hexa_int_low.c \
-			ft_printf/ft_printf_hexa_int_up.c \
-			ft_printf/ft_printf_string.c \
-			ft_printf/ft_printf_unsigned_integer.c \
-			
 
-OBJS	=	$(SRCS:.c=.o)
+# Flags de compilations
+CFLAGS			=	-Wall -Wextra -Werror -c #c permet de changer les points c en point o
+CFLAGS			+=	-I includes #permet d'inclure le header au lieu du chemin du header
+CFLAGS			+=	-MMD -MP -Imlx_linux #MMD MP permet de créer des dépendances
+LFLAGS			+=	-lmlx -Lmlx_linux -lXext -lX11 -lm -L$(LIBFT_D) -lft -L$(FT_PRINTF_D) -lftprintf
+#-lft correspond à -llibft.a
+# -lftprint correspond à -llibftprintf.a
+# -L permet de chercher dans le dossier des librairies
+# -l permet de chercher la librairie
 
-MLX_D	=	mlx_linux
-LINUX	=	-I /usr/include -L /usr/lib/ -lmlx -Lmlx_linux -Imlx_linux -lXext -lX11 -lm -lz
+# Dossiers
+LIBFT_D			=	libft/
+FT_PRINTF_D		=	ft_printf/
+SRCS_D			=	srcs/
+GNL_D			=	gnl/
+MLX_D			=	mlx_linux/
+OBJS_D			=	objs/
 
-CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
-RM		=	rm -f
+# Librairies
+LIBFT_N 		=	libft.a
+LIBFT_N 		:=	$(addprefix $(LIBFT_D),$(LIBFT_N))
+FT_PRINTF_N	 	=	libftprintf.a
+FT_PRINTF_N 	:=	$(addprefix $(FT_PRINTF_D),$(FT_PRINTF_N))
+MLX_N			=	libmlx.a
+MLX_N 			:=	$(addprefix $(MLX_D),$(MLX_N))
 
-.c.o:
-			$(CC) $(CFLAGS) -I /usr/include -Imlx_mlx_linux -O3  -c $< -o $@
+# Fichiers sources
+SRCS_SRCS		=	check_all.c \
+					check_file.c \
+					check_map.c \
+					check_map_param.c \
+					check_texture.c \
+					draw.c \
+					hooks.c \
+					init_images.c \
+					init_structure.c \
+					main.c \
+					print_error.c \
 
-$(NAME):	$(OBJS) $(LIBFT_D) $(FT_PRINTF_D)
-				make -C $(LIBFT_D)
-				cp $(LIBFT_D)/$(LIBFT_N) $(NAME)
-				make -C $(FT_PRINTF_D)
-				cp $(FT_PRINTF_D)/$(FT_PRINTF_N) $(NAME)
-				ar -rcs $(NAME) $(OBJS)
-		       	make -C	$(MLX_D) all
-			$(CC) $(CFLAGS) $(OBJS) $(LINUX) $(LIBFT_D)/$(LIBFT_N) $(FT_PRINTF_D)/$(FT_PRINTF_N) -o $(NAME)
+SRCS_GNL		=	get_next_line.c \
 
-all:		$(NAME)
+SRCS_FT_PRINTF	=	ft_printf_adress.c \
+					ft_printf.c \
+					ft_printf_call.c \
+					ft_printf_character_percent.c \
+					ft_printf_decimal_integer.c \
+					ft_printf_hexa_int_low.c \
+					ft_printf_hexa_int_up.c \
+					ft_printf_string.c \
+					ft_printf_unsigned_integer.c \
 
+# Fichiers objets
+OBJS_SRCS		=	$(SRCS_SRCS:.c=.o)
+OBJS_SRCS 		:=	$(addprefix $(OBJS_D), $(OBJS_SRCS))
+
+OBJS_GNL		=	$(SRCS_GNL:.c=.o)
+OBJS_GNL 		:=	$(addprefix $(OBJS_D), $(OBJS_GNL))
+
+OBJS_FT_PRINTF	=	$(SRCS_FT_PRINTF:.c=.o)
+OBJS_FT_PRINTF	:=	$(addprefix $(OBJS_D), $(OBJS_FT_PRINTF))
+
+OBJS			=	$(OBJS_SRCS) $(OBJS_GNL) $(OBJS_FT_PRINTF)
+
+# Dépendances
+DEPS			=	$(OBJS:.o=.d)
+
+# Règles
+all:				$(NAME)
+
+$(NAME):			$(OBJS) $(LIBFT_N) $(MLX_N) $(FT_PRINTF_N)
+					$(LINKER) $(OBJS) $(LFLAGS) -o $@
+# $@ correspond à tout = nom d'executable = so_long
+# -o spécifie le fichier de sortie = so_long
+# -c génère le fichier .o
+
+-include $(DEPS)
+
+$(OBJS_D)%.o:		$(SRCS_D)%.c
+					$(CREATE) $(OBJS_D)
+					$(CC) $(CFLAGS) -o $@ $<
+					
+$(OBJS_D)%.o:		$(GNL_D)%.c
+					$(CREATE) $(OBJS_D)
+					$(CC) $(CFLAGS) -o $@ $<
+
+$(OBJS_D)%.o:		$(FT_PRINTF_D)%.c
+					$(CREATE) $(OBJS_D)
+					$(CC) $(CFLAGS) -o $@ $<
+
+$(MLX_D)libmlx.a:	
+					$(MAKE) -C $(MLX_D)
+
+$(LIBFT_D)libft.a:	
+					$(MAKE) -C $(LIBFT_D)
+
+$(FT_PRINTF_D)libftprintf.a:	
+					$(MAKE) -C $(FT_PRINTF_D)
+					
 clean:
-			make clean -C $(LIBFT_D)
-			make clean -C $(FT_PRINTF_D)
-			make clean -C $(MLX_D)
-			$(RM) $(OBJS)
+					make clean -C $(LIBFT_D)
+					make clean -C $(FT_PRINTF_D)
+					make clean -C $(MLX_D)
+					$(RM) $(OBJS_D)
 
-fclean:		clean
-			make fclean -C $(LIBFT_D)
-			make fclean -C $(FT_PRINTF_D)
-			$(RM) $(NAME)
-			make -C $(MLX_D) clean
+fclean:				clean
+					make fclean -C $(LIBFT_D)
+					make fclean -C $(FT_PRINTF_D)
+					$(RM) $(NAME)
 
-re:			fclean all
+re:					fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:				all clean fclean re

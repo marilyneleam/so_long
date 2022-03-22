@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:28:14 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 15:37:07 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 17:40:37 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../libft/libft.h"
 # include "msg_error.h"
-# include "../GNL/get_next_line.h"
+# include "../gnl/get_next_line.h"
 # include "../ft_printf/ft_printf.h"
 # include "../mlx_linux/mlx.h"
 
@@ -93,6 +93,10 @@ void	pos_player(t_all *all, int i, int j);
 void	draw_elements(t_all *all, int i, int j);
 void	draw_collectibles(t_all *all, int i, int j);
 void	draw_map(t_all *all);
+void	init_structure(t_all *all);
+void	check_all(char **av, t_all *all);
+int		key_hook(int keycode, t_all *all);
+int		mouse_close(t_all *all);
 
 int		main(int ac, char **av);
 

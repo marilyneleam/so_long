@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_images.c                                      :+:      :+:    :+:   */
+/*   init_structure.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 17:11:45 by mleam             #+#    #+#             */
+/*   Created: 2022/03/22 16:09:49 by mleam             #+#    #+#             */
 /*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img	init_image(t_all *all, char *pathfile)
+void	init_structure(t_all *all)
 {
-	t_img img;
-	img.img = mlx_xpm_file_to_image(all->data.mlx, pathfile, &img.width, &img.height);
-	if (!img.img)
-		exit(EXIT_FAILURE);	
-	return (img);
-}
-
-void	init_images(t_all *all)
-{
-	all->text.wall = init_image(all, WALL);
-	all->text.ground = init_image(all, GROUND);
-	all->text.collectibles = init_image(all, COLLECTIBLES);
-	all->text.player = init_image(all, PLAYER);
-	all->text.exit = init_image(all, EXIT);
+	all->map.pos_x = 0;
+	all->map.pos_y = 0;
+	all->map.step = 0;
+	all->map.player = 0;
+	all->map.coll = 0;
+	all->map.exit = 0;
+	
 }

@@ -6,11 +6,11 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:45:12 by mleam             #+#    #+#             */
-/*   Updated: 2022/02/25 19:01:42 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 17:46:23 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	check_texture_extension(char *str)
 {
