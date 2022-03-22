@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:57:47 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 14:47:13 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 14:57:04 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int key_hook(int keycode, t_all *all)
 		all->map.pos_y += 1;
 	if (keycode == 100)
 		all->map.pos_x +=1;
-	if (keycode == 65307)
+	if (keycode == 65307 || all->map.tab[all->map.pos_y][all->map.pos_x] == 'E')
 	{
 		mlx_destroy_window(all->data.mlx, all->data.mlx_win);
 		exit(EXIT_SUCCESS);
