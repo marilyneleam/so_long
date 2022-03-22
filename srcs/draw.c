@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 17:42:33 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 14:54:33 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/22 15:01:04 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	draw_elements(t_all *all, int i, int j)
 void	draw_collectibles(t_all *all, int i, int j)
 {
 	if(all->map.tab[all->map.pos_y][all->map.pos_x] == 'C')
+	{
 		all->map.tab[all->map.pos_y][all->map.pos_x] = '0';
+		all->map.coll--;
+	}
 	if (all->map.tab[i][j] == 'C')
 		mlx_put_image_to_window(all->data.mlx, all->data.mlx_win, all->text.collectibles.img, j * 32, i * 32);
 }
