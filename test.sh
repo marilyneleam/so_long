@@ -76,6 +76,6 @@ echo ""
 echo "${GREEN} TEST HAS NO EXIT ${END}" 
 ./so_long maps/map_exit.ber
 
-echo ""
-echo "${GREEN} TEST XPM OK ${END}" 
-./so_long maps/map1.ber
+#echo ""
+#echo "${GREEN} TEST XPM OK ${END}" 
+#./so_long maps/map1.ber

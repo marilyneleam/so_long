@@ -6,7 +6,7 @@
 /*   By: mleam <mleam@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:00:16 by mleam             #+#    #+#             */
-/*   Updated: 2022/03/22 22:33:33 by mleam            ###   ########.fr       */
+/*   Updated: 2022/03/25 16:32:55 by mleam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ void	copy_map(char **av, t_map *map)
 	map->column = 0;
 	map->tab = (char **)malloc(sizeof(char *) * (map->row + 1));
 	if (!(map->tab))
+	{
 		exit(EXIT_FAILURE);
+	}
 	map->tab[map->row] = NULL;
 	while (ret == 1)
 	{
@@ -72,7 +74,10 @@ void	check_map_rectangle(t_map *map)
 	{
 		compare_len = ft_strlen(map->tab[i - 1]) - ft_strlen(map->tab[i]);
 		if (compare_len != 0)
+		{
+			free_tab(map->tab);
 			print_error(ERR_MAP_RECTANGLE);
+		}
 		i++;
 	}
 }
@@ -91,7 +96,10 @@ void	check_map_wall(t_map *map)
 			if (map->tab[0][j] != '1' || map->tab[i][0] != '1'
 				|| map->tab[map->row - 1][j] != '1' ||
 					map->tab[i][map->column -1] != '1')
+			{
+				free_tab(map->tab);
 				print_error(ERR_MAP_CLOSED);
+			}
 			j++;
 		}
 		i++;
