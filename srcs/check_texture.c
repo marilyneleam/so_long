@@ -25,6 +25,7 @@ void	check_texture_extension(char *str)
 		print_error(ERR_EXTENSION);
 	if (!str[j - 1] || str[j - 1] == '/')
 		print_error(ERR_NAME);
+	check_and_read_texture(str);
 }
 
 void	check_and_read_texture(char *pathfile)

@@ -11,7 +11,14 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
+
+static void	map_tab_null_free(t_map *map, char *line, int const fd)
+{
+	free_tab(map->tab);
+	free(line);
+	close(fd);
+	exit(EXIT_FAILURE);
+}
 
 void	check_map_size(char **av, t_map *map)
 {
@@ -42,22 +49,22 @@ void	copy_map(char **av, t_map *map)
 	char	*line;
 	int		i;
 
-	i = 0;
+	i = -1;
 	line = NULL;
 	fd = open(av[1], O_RDONLY);
 	ret = 1;
 	map->column = 0;
 	map->tab = (char **)malloc(sizeof(char *) * (map->row + 1));
 	if (!(map->tab))
-	{
 		exit(EXIT_FAILURE);
-	}
 	map->tab[map->row] = NULL;
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
 		map->column = ft_strlen(line);
-		map->tab[i++] = ft_strdup(line);
+		map->tab[++i] = ft_strdup(line);
+		if (!map->tab[i])
+			map_tab_null_free(map, line, fd);
 		free(line);
 		line = NULL;
 	}
