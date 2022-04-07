@@ -12,35 +12,30 @@
 
 #include "get_next_line.h"
 
-int	back_line(char *str)
+static char	*ft_strchr(char const *str, char const c)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
+	while (*str && *str != c)
+		++str;
+	if (*str == c)
+		return ((char *)str);
+	return (NULL);
 }
 
 char	*before_line(char *str)
 {
 	int		i;
 	char	*line;
+	char	*newline;
+	size_t	len;
 
-	i = 0;
-	if (!str)
-		return (NULL);
-	while (str[i] && str[i] != '\n')
-		i++;
-	line = (char *)malloc(sizeof(char) * (i + 1));
+	newline = ft_strchr(str, '\n');
+	if (!newline)
+		len = ft_strlen(str);
+	else
+		len = newline - str;
+	line = (char *)malloc(sizeof(char) * (len + 1));
 	if (!line)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
@@ -48,61 +43,46 @@ char	*before_line(char *str)
 		i++;
 	}
 	line[i] = '\0';
+	free(str);
 	return (line);
 }
 
-char	*after_line(char *str)
+static void	after_line(char *stock, char *line)
 {
-	int		i;
-	int		j;
-	char	*rest;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	if (!str)
-		return (0);
-	while (str[i] && str[i] != '\n')
+	while (line[i] && line[i] != '\n')
 		i++;
-	if (!str[i])
-	{
-		free(str);
-		return (0);
-	}
-	rest = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!rest)
-		return (0);
-	i++;
-	while (str[i])
-		rest[j++] = str[i++];
-	rest[j] = '\0';
-	free(str);
-	return (rest);
+	if (line[i])
+		++i;
+	while (line[i])
+		stock[j++] = line[i++];
+	stock[j] = '\0';
 }
 
 int	get_next_line(int fd, char **line)
 {
-	char		*buf;
-	static char	*stock;
+	char		buf[BUFFER_SIZE + 1];
+	static char	stock[BUFFER_SIZE + 1];
 	int			ret;
 
 	ret = 1;
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (fd < 0 || BUFFER_SIZE <= 0 || !line || !buf)
+	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (-1);
-	while (!back_line(stock) && ret != 0)
+	*line = ft_strdup(stock);
+	while (!ft_strchr(*line, '\n') && ret != 0)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == -1)
-		{
-			free(buf);
 			return (-1);
-		}
 		buf[ret] = '\0';
-		stock = ft_strjoin(stock, buf);
+		*line = ft_strjoin(*line, buf);
 	}
-	free(buf);
-	*line = before_line(stock);
-	stock = after_line(stock);
+	after_line((char *)stock, *line);
+	*line = before_line(*line);
 	if (ret == 0)
 		return (0);
 	return (1);
